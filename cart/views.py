@@ -20,7 +20,7 @@ class CartView(APIView):
         """
 "id":2, "remove":0,"quantity":1, "update_quantity":0
         """
-        if data['remove']:
+        if data['remove'] or data['quantity']==0:
             cart.remove(data)
         else:
             cart.add(

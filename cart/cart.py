@@ -39,8 +39,6 @@ class Cart:
         else:
             self.cart[product_id]['quantity'] += quantity
 
-        if self.cart[product_id]['quantity']==0:
-            self.remove(product)
 
         product=Product.objects.prefetch_related('images').get(id=int(product_id))
         self.cart[product_id]['product']=ProductDetailSerializer(product).data
